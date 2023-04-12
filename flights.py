@@ -16,6 +16,15 @@ def data_cleaning(flight_df):
 def create_flight_dfs():
     for file in csv_files:
         df_dict[file] = data_cleaning(pd.read_csv(file))
-# %%
 
 create_flight_dfs()
+# %%
+
+def remove_columns(flight_df):
+    flight_df.drop(['TailNum', 'AirTime', 'TaxiIn', 'TaxiOut'], axis=1, inplace=True)
+
+remove_columns(df_dict['1995.csv'])
+remove_columns(df_dict['1996.csv'])
+
+# %%
+master_df = pd.concat((df_dict), ignore_index=True)
