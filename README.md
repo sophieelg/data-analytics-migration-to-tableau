@@ -5,3 +5,10 @@ Scenario: Take on the role of a Data Analyst at Skyscanner and work on a project
 ## Milestone 1
 
 - Set up the dev environment.
+
+## Milestone 2
+
+- Load the CSV data files into Pandas dataframes.
+- Clean the data to remove any columns which contain all NA records. Replace any recordw which still contain NAs with zeros.
+- Integrate all of the dataframes together into one master dataframe.
+- Export the master dataframe into one file 'combined_data.csv'. Copy the file to my S3 bucket.
