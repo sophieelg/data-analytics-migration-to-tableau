@@ -35,6 +35,25 @@ remove_columns(df_dict['1996.csv'])
 master_df = pd.concat((df_dict), ignore_index=True)
 # %%
 
+def update_dtypes(df):
+    # change data types
+    master_df['DepTime'] = master_df['DepTime'].astype('float')
+    master_df['ArrTime'] = master_df['ArrTime'].astype('float')
+    master_df['UniqueCarrier'] = master_df['UniqueCarrier'].astype('category')
+    master_df['ActualElapsedTime'] = master_df['ActualElapsedTime'].astype('float')
+    master_df['CRSElapsedTime'] = master_df['CRSElapsedTime'].astype('float')
+    master_df['ArrDelay'] = master_df['ArrDelay'].astype('float')
+    master_df['DepDelay'] = master_df['DepDelay'].astype('float')
+    master_df['Origin'] = master_df['Origin'].astype('category')
+    master_df['Dest'] = master_df['Dest'].astype('category')
+    master_df['Distance'] = master_df['Distance'].astype('float')
+    master_df['Cancelled'] = master_df['Cancelled'].astype('bool')
+    master_df['Diverted'] = master_df['Diverted'].astype('bool')
+    return df
+
+update_dtypes(master_df)
+# %%
+
 # export master df to csv
 def export_to_csv(df):
     df.to_csv('combined_data.csv')
