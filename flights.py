@@ -56,6 +56,6 @@ update_dtypes(master_df)
 
 # export master df to csv
 def export_to_csv(df):
-    df.to_csv('combined_data.csv', index=False)
+    df.to_csv('combined_data.csv')
 
 export_to_csv(master_df)
